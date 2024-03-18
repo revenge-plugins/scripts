@@ -35,7 +35,7 @@ for (const pl of inputs) {
 
     const now = await exec(`git rev-list HEAD -1`);
     if (!now.stderr)
-      await writeSummary(`- https://github.com/puhbu/rproxy/commit/${now.stdout.trim()}\n`);
+      await writeSummary(`- https://github.com/revenge-plugins/proxy/commit/${now.stdout.trim()}\n`);
   } catch (e) {
     console.error(e);
   }
