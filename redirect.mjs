@@ -42,7 +42,7 @@ for (let i = 0; i < inputs.length; i += 2) {
 
     manifest.description += " [redirect]";
 
-    const js = `(setImmediate(async function(){let t="https://vd-plugins.github.io/proxy/"+${JSON.stringify(target)},p=vendetta.plugin.id,s=vendetta.plugins,m=nativeModuleProxy.MMKVManager,o=(await m.getItem(p))??"{}";await m.setItem(t,o);s.removePlugin(p);s.installPlugin(t)}),({onUnload(){}}));`;
+    const js = `(setImmediate(async function(){let t="https://puhbu.github.io/rproxy/"+${JSON.stringify(target)},p=vendetta.plugin.id,s=vendetta.plugins,m=nativeModuleProxy.MMKVManager,o=(await m.getItem(p))??"{}";await m.setItem(t,o);s.removePlugin(p);s.installPlugin(t)}),({onUnload(){}}));`;
     manifest.hash = createHash("sha256").update(js).digest("hex");
 
     await fs.mkdir(source, { recursive: true });
@@ -67,9 +67,9 @@ for (let i = 0; i < inputs.length; i += 2) {
 
     const now = await exec(`git rev-list HEAD -1`);
     if (!now.stderr)
-      await writeSummary(`- from https://vd-plugins.github.io/proxy/${source}  
-to https://vd-plugins.github.io/proxy/${target}  
-https://github.com/vd-plugins/proxy/commit/${now.stdout.trim()}\n\n`);
+      await writeSummary(`- from https://puhbu.github.io/rproxy/${source}  
+to https://puhbu.github.io/rproxy/${target}  
+https://github.com/puhbu/rproxy/commit/${now.stdout.trim()}\n\n`);
   } catch (e) {
     console.error(e);
   }
