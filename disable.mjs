@@ -18,7 +18,7 @@ for (const pl of inputs) {
     const source = pl.host + pl.pathname;
 
     const manifest = JSON.parse(await fs.readFile(path.join(source, "manifest.json"), "utf8"));
-    manifest.description = "This plugin has been temporarily disabled by the Vendetta staff";
+    manifest.description = "This plugin has been temporarily disabled by the Revenge staff";
     manifest.hash = "7a3bac42d229c335dc892d1749680f70ba9d74cb06cd451dcd1153b9acd1a8c1";
 
     await fs.writeFile(path.join(source, "index.js"), `(()=>({onUnload(){}}))();`);
@@ -43,7 +43,7 @@ for (const pl of inputs) {
 
     const now = await exec(`git rev-list HEAD -1`);
     if (!now.stderr)
-      await writeSummary(`- https://vd-plugins.github.io/proxy/${source}  \nhttps://github.com/vd-plugins/proxy/commit/${now.stdout.trim()}\n\n`);
+      await writeSummary(`- https://puhbu.github.io/rproxy/${source}  \nhttps://github.com/puhbu/rproxy/commit/${now.stdout.trim()}\n\n`);
   } catch (e) {
     console.error(e);
   }
