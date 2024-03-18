@@ -20,11 +20,6 @@ on:
         required: true
         type: string
 
-      channel:
-        description: Conduit channel
-        required: false
-        type: string
-
 permissions:
   contents: write
 
@@ -33,20 +28,12 @@ jobs:
     name: ${{ inputs.action }}
     runs-on: ubuntu-latest
     steps:
-      - name: Notify dispatcher about execution
-        if: ${{ inputs.channel }}
-        run: |
-          curl https://tracker.vendetta.rocks/conduit/$CHANNEL -H "Authorization: Conduit $TOKEN" -d "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-        env:
-          CHANNEL: ${{ inputs.channel }}
-          TOKEN: ${{ secrets.CONDUIT_TOKEN }}
-
       - uses: actions/checkout@v4
         with:
           path: scripts
       - uses: actions/checkout@v4
         with:
-          repository: vd-plugins/proxy
+          repository: puhbu/rproxy
           token: ${{ secrets.PROXY_TOKEN }}
           path: proxy
 
