@@ -33,7 +33,7 @@ jobs:
           path: scripts
       - uses: actions/checkout@v4
         with:
-          repository: puhbu/rproxy
+          repository: revenge-plugins/proxy
           token: ${{ secrets.PROXY_TOKEN }}
           path: proxy
 
